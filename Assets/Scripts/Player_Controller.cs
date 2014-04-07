@@ -11,10 +11,11 @@ public class Player_Controller : MonoBehaviour
 	bool facingRight = true;
 	bool isGrounded = false;
 	float groundRadius = 0.2f;
+	Animator anim;
 
 	void Start()
 	{
-		
+		anim = GetComponent<Animator>();
 	}
 
 	void Update()
@@ -33,6 +34,8 @@ public class Player_Controller : MonoBehaviour
 		float move = Input.GetAxis("Horizontal");
 		
 		rigidbody2D.velocity = new Vector2(move * maxSpeed, rigidbody2D.velocity.y);
+
+		anim.SetFloat("Speed", Mathf.Abs(move));
 
 		if(move > 0 && !facingRight)
 			Flip();

@@ -2,27 +2,39 @@ using System.Collections.Generic;
 using System;
 
 namespace OneDescript {
-	public enum OValueType {
-		INT = 0,
-		FLOAT = 1,
-		STRING = 2,
-		REFLIST = 3
+	public class OValueType {
+		public static readonly OValueType INT = new OValueType(0);
+		public static readonly OValueType FLOAT = new OValueType(1);
+		public static readonly OValueType STRING = new OValueType(2);
+		public static readonly OValueType REFLIST = new OValueType(3);
+
+		public byte typeByte;
+
+		private OValueType() {}
+		private OValueType(byte type) {
+			this.typeByte = type;
+		}
+
+		public static OValueType FromByte(byte b) {
+			switch (b) {
+			case 0: return INT;
+			case 1: return FLOAT;
+			case 2: return STRING;
+			case 3: return REFLIST;
+			default: throw new ArgumentException("Invalid type "+b);
+			}
+		}
+		public bool Equals(OValueType other) {
+			return typeByte == other.typeByte;
+		}
 	}
+
 	public class OValue {
 		private OValueType _type;
 		private object _value;
 		
-		public OValue(object value) {
-			Type type = value.GetType();
-			if (type == typeof(int)) {
-				_type = OValueType.INT;
-			} else if (type == typeof(float)) {
-				_type = OValueType.FLOAT;
-			} else if (type == typeof(string)) {
-				_type = OValueType.STRING;
-			} else if (type == typeof(List<OValue>)) {
-				_type = OValueType.REFLIST;
-			}
+		public OValue(OValueType type, object value) {
+			_type = type;
 			_value = value;
 		}
 		

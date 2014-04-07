@@ -56,6 +56,8 @@ namespace OneDescript {
 				skipToBlock();
 
 			}
+			//Added by Sebastian Lawe - This was keeping the project from compiling.
+			return null;
 		}
 
 		public static void Serialize(DescriptorGroup group, BinaryWriter writer) {

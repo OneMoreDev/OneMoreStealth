@@ -3,11 +3,7 @@
 --- !u!78 &1
 TagManager:
   tags:
-<<<<<<< HEAD
-  - Player
-=======
   - 
->>>>>>> FETCH_HEAD
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
   Builtin Layer 2: Ignore Raycast
@@ -16,33 +12,9 @@ TagManager:
   Builtin Layer 5: 
   Builtin Layer 6: 
   Builtin Layer 7: 
-<<<<<<< HEAD
   User Layer 8: Wall
   User Layer 9: Player
   User Layer 10: Enemy
-=======
-<<<<<<< HEAD
-  <<<<<<< HEAD
-  User Layer 8: Wall
-  User Layer 9: Player
-  User Layer 10: Enemy
-  ======
-  User Layer 8: Player
-  User Layer 9: 
-  User Layer 10: 
-  >>>>>>> 6ba8b8e411fed9a7b057fd2a1d6d06a816db262c
-=======
-<<<<<<< HEAD
-  User Layer 8: Player
-  User Layer 9: 
-  User Layer 10: 
-=======
-  User Layer 8: Wall
-  User Layer 9: Player
-  User Layer 10: Enemy
->>>>>>> 7294c6d0d1d7e44ee0041047ad57554bb257080a
->>>>>>> FETCH_HEAD
->>>>>>> 210ecd4bee00d60e51bbada8ceeeb4f3f790b798
   User Layer 11: 
   User Layer 12: 
   User Layer 13: 

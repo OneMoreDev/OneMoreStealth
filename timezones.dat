@@ -1,0 +1,7 @@
+// All timezones should be without DST for consistency.
+Entity:GMT-5
+Plainwrek:GMT-5
+Total:UTC+12
+ZeroSwordsMaster:GMT-6
+Kroltan:GMT-4
+Sebane:GMT+1

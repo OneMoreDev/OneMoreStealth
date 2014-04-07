@@ -31,3 +31,6 @@ ExportedObj/
 Icon?
 ehthumbs.db
 Thumbs.db
+Java/.metadata/*
+Java/BinaryIO/.settings/org.eclipse.jdt.core.prefs
+Java/LevelEditor/.settings/org.eclipse.jdt.core.prefs

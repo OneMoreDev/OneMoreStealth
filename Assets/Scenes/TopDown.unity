@@ -299,6 +299,10 @@ Prefab:
       propertyPath: m_FixedAngle
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5000000, guid: 640d905428aa1384288c0f902d9fa881, type: 2}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 640d905428aa1384288c0f902d9fa881, type: 2}
   m_RootGameObject: {fileID: 940736324}
@@ -634,7 +638,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .5
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -1009,7 +1013,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -1356,6 +1360,14 @@ Prefab:
     - target: {fileID: 400000, guid: faa415ae33b729f4384a1777d31cb11e, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9600000, guid: faa415ae33b729f4384a1777d31cb11e, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5000000, guid: faa415ae33b729f4384a1777d31cb11e, type: 2}
+      propertyPath: m_GravityScale
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: faa415ae33b729f4384a1777d31cb11e, type: 2}

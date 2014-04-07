@@ -3,7 +3,6 @@
 --- !u!78 &1
 TagManager:
   tags:
-  - Player
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -13,15 +12,9 @@ TagManager:
   Builtin Layer 5: 
   Builtin Layer 6: 
   Builtin Layer 7: 
-<<<<<<< HEAD
   User Layer 8: Wall
   User Layer 9: Player
   User Layer 10: Enemy
-=======
-  User Layer 8: Player
-  User Layer 9: 
-  User Layer 10: 
->>>>>>> 6ba8b8e411fed9a7b057fd2a1d6d06a816db262c
   User Layer 11: 
   User Layer 12: 
   User Layer 13: 

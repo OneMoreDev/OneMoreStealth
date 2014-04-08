@@ -528,7 +528,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 198872584}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .5
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_FixedAngle: 1
   m_IsKinematic: 0
@@ -1112,7 +1112,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 598988819}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .5
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_FixedAngle: 1
   m_IsKinematic: 0
@@ -1372,7 +1372,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 883858409}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .5
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_FixedAngle: 1
   m_IsKinematic: 0
@@ -1572,7 +1572,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 907324448}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .5
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_FixedAngle: 1
   m_IsKinematic: 0
@@ -1669,7 +1669,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 940736324}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_FixedAngle: 1
   m_IsKinematic: 0
@@ -2300,7 +2300,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1307784658}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .5
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_FixedAngle: 1
   m_IsKinematic: 0
@@ -2498,7 +2498,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1394396404}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .5
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_FixedAngle: 1
   m_IsKinematic: 0
@@ -2676,7 +2676,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_BackGroundColor: {r: .647058845, g: .647058845, b: .647058845, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -2912,7 +2912,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1801185722}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .5
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_FixedAngle: 1
   m_IsKinematic: 0
@@ -3048,7 +3048,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1861313437}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .5
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_FixedAngle: 1
   m_IsKinematic: 0
@@ -3264,7 +3264,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1922214118}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .5
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_FixedAngle: 1
   m_IsKinematic: 0
@@ -3462,7 +3462,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 2025663837}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .5
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_FixedAngle: 1
   m_IsKinematic: 0

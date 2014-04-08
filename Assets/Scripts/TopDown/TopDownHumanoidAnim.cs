@@ -21,7 +21,7 @@ public class TopDownHumanoidAnim : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate() {
-		if (transform.position.x < lastPosition.x && !left) {
+		if (rigidbody2D.velocity.x < 0 && !left) {
 			left = true;
 			right = false;
 			up = false;
@@ -32,7 +32,7 @@ public class TopDownHumanoidAnim : MonoBehaviour {
 			diagonalDownRight = false;
 			transform.rotation = Quaternion.Euler(Vector3.forward * -90);
 		}
-		if (transform.position.x > lastPosition.x && !right) {
+		if (rigidbody2D.velocity.x > 0 && !right) {
 			left = false;
 			right = true;
 			up = false;
@@ -43,7 +43,7 @@ public class TopDownHumanoidAnim : MonoBehaviour {
 			diagonalDownRight = false;
 			transform.rotation = Quaternion.Euler(Vector3.forward * -270);
 		}
-		if (transform.position.y < lastPosition.y && !up) {
+		if (rigidbody2D.velocity.y < 0 && !up) {
 			left = false;
 			right = false;
 			up = true;
@@ -54,7 +54,7 @@ public class TopDownHumanoidAnim : MonoBehaviour {
 			diagonalDownRight = false;
 			transform.rotation = Quaternion.Euler(Vector3.forward * 0);
 		}
-		if (transform.position.y > lastPosition.y && !down) {
+		if (rigidbody2D.velocity.y > 0 && !down) {
 			left = false;
 			right = false;
 			up = false;
@@ -65,7 +65,7 @@ public class TopDownHumanoidAnim : MonoBehaviour {
 			diagonalDownRight = false;
 			transform.rotation = Quaternion.Euler(Vector3.forward * -180);
 		}
-		if (transform.position.y < lastPosition.y && transform.position.x < lastPosition.x && !diagonalUpLeft) {
+		if (rigidbody2D.velocity.y < 0 && rigidbody2D.velocity.x < 0 && !diagonalUpLeft) {
 			left = false;
 			right = false;
 			up = false;
@@ -76,7 +76,7 @@ public class TopDownHumanoidAnim : MonoBehaviour {
 			diagonalDownRight = false;
 			transform.rotation = Quaternion.Euler(Vector3.forward * -30);
 		}
-		if (transform.position.y < lastPosition.y && transform.position.x > lastPosition.x && !diagonalUpRight) {
+		if (rigidbody2D.velocity.y < 0 && rigidbody2D.velocity.x > 0 && !diagonalUpRight) {
 			left = false;
 			right = false;
 			up = false;
@@ -87,7 +87,7 @@ public class TopDownHumanoidAnim : MonoBehaviour {
 			diagonalDownRight = false;
 			transform.rotation = Quaternion.Euler(Vector3.forward * -300);
 		}
-		if (transform.position.y > lastPosition.y && transform.position.x < lastPosition.x && !diagonalDownLeft) {
+		if (rigidbody2D.velocity.y > 0 && rigidbody2D.velocity.x < 0 && !diagonalDownLeft) {
 			left = false;
 			right = false;
 			up = false;
@@ -98,7 +98,7 @@ public class TopDownHumanoidAnim : MonoBehaviour {
 			diagonalDownRight = false;
 			transform.rotation = Quaternion.Euler(Vector3.forward * -110);
 		}
-		if (transform.position.y > lastPosition.y && transform.position.x > lastPosition.x && !diagonalDownRight) {
+		if (rigidbody2D.velocity.y > 0 && rigidbody2D.velocity.x > 0 && !diagonalDownRight) {
 			left = false;
 			right = false;
 			up = false;

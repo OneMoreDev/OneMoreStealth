@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEditor;
 using System.Collections.Generic;
 using System;
+using System.IO;
 
 namespace OneDescript {
 	[CustomEditor(typeof(DescriptorComponent))]
@@ -94,6 +95,24 @@ namespace OneDescript {
 			if (GUILayout.Button("Add Object")) {
 				willAddObject = true;
 			}
+			EditorGUILayout.BeginHorizontal();
+			if (GUILayout.Button("Save", EditorStyles.miniButtonLeft)) {
+				string path = EditorUtility.OpenFilePanel("Choose a file to save to", Application.dataPath, "omd");
+				if (path != string.Empty) SerializeTo(path);
+			}
+			if (GUILayout.Button("Load", EditorStyles.miniButtonRight)) {
+				string path = EditorUtility.OpenFilePanel("Choose a file to import", Application.dataPath, "omd");
+				if (path != string.Empty) component.group = DeserializeFrom(path);
+			}
+			EditorGUILayout.EndHorizontal();
+		}
+
+		void SerializeTo(string path) {
+			OneDescriptorSerializer.Serialize(((DescriptorComponent)target).group, File.Create(path));
+		}
+
+		DescriptorGroup DeserializeFrom(string path) {
+			return OneDescriptorSerializer.Deserialize(File.OpenRead(path));
 		}
 
 		object DefaultValue(OValueType type) {

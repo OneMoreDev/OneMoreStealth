@@ -76,6 +76,10 @@ namespace OneDescript {
 			blocks.Remove(this[id]);
 		}
 
+		public Descriptor FetchReference(int reference) {
+			return this[reference];
+		}
+
 		#region IEnumerable implementation
 		IEnumerator<Descriptor> IEnumerable<Descriptor>.GetEnumerator() {
 			return blocks.GetEnumerator();

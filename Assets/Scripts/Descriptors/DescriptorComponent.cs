@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace OneDescript {
 	public class DescriptorComponent : MonoBehaviour {
-		public DescriptorGroup group {get; private set;}
+		public DescriptorGroup group {get; set;}
 
 		public DescriptorComponent() : base() {
 			group = new DescriptorGroup();

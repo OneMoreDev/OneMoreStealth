@@ -16,7 +16,7 @@ TagManager:
   User Layer 9: Player
   User Layer 10: Enemy
   User Layer 11: Door
-  User Layer 12: 
+  User Layer 12: Background
   User Layer 13: 
   User Layer 14: 
   User Layer 15: 
@@ -40,4 +40,16 @@ TagManager:
   - name: Default
     userID: 0
     uniqueID: 0
+    locked: 0
+  - name: Background
+    userID: 1
+    uniqueID: 55962893
+    locked: 0
+  - name: StationaryObjects
+    userID: 2
+    uniqueID: 846769621
+    locked: 0
+  - name: Sprites
+    userID: 3
+    uniqueID: 1729097207
     locked: 0

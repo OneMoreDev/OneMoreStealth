@@ -6,7 +6,6 @@ using System.Collections.Generic;
 
 public class TopDownPatrollingEnemy : MonoBehaviour {
 	public float speed = 10f;
-	List<DirectedBoolean> bools = new List<DirectedBoolean>();
 	Vector3 lastLocation;
 	Vector3 movementDirection;
 	// Use this for initialization

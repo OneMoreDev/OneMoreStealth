@@ -10,6 +10,14 @@ using UnityEngine;
 
 
 namespace OneDescript {
+	/// <summary>
+	/// Holds a arbirtrary number of properties accessable via an indexer.
+	/// </summary>
+	/// <example>
+	/// Descriptor desc = new Descriptor();
+	/// desc["number"] = new OValue(OValueType.INT, 1337);
+	/// desc["somethingElse"] = new OValue(OValueType.STRING, "herpty derp");
+	/// </example>
 	public class Descriptor : IEnumerable<KeyValuePair<string, OValue>> {
 		public int ID {
 			get; set;
@@ -18,7 +26,10 @@ namespace OneDescript {
 		public Descriptor() {
 			properties = new Dictionary<string, OValue>();
 		}
-
+		/// <summary>
+		/// Gets or sets a property value.
+		/// </summary>
+		/// <param name="property">The property key.</param>
 		public OValue this[string property] {
 			get {
 				return properties[property];
@@ -28,6 +39,10 @@ namespace OneDescript {
 			}
 		}
 
+		/// <summary>
+		/// Remove the specified property.
+		/// </summary>
+		/// <param name="property">Property key to remove.</param>
 		public void Remove(string property) {
 			properties.Remove(property);
 		}
@@ -49,6 +64,9 @@ namespace OneDescript {
 		#endregion
 	}
 
+	/// <summary>
+	/// Holds an arbitrary amount of <see cref="Descriptor"/>s, accessible from the indexer.
+	/// </summary>
 	public class DescriptorGroup : IEnumerable<Descriptor> {
 		private List<Descriptor> blocks;
 		public int Count {
@@ -59,6 +77,11 @@ namespace OneDescript {
 		public DescriptorGroup() {
 			blocks = new List<Descriptor>();
 		}
+		/// <summary>
+		/// Gets or sets the descriptor on the specified index.
+		/// IDs are automatically adjusted to reflect this.
+		/// </summary>
+		/// <param name="ID">ID of the descriptor</param>
 		public Descriptor this[int ID] {
 			get {
 				return blocks.First(desc => {return desc.ID == ID;});
@@ -69,13 +92,26 @@ namespace OneDescript {
 			}
 		}
 
+		/// <summary>
+		/// Remove the specified descriptor.
+		/// </summary>
+		/// <param name="desc">Descriptor to remove.</param>
 		public void Remove(Descriptor desc) {
 			blocks.Remove(desc);
 		}
+		/// <summary>
+		/// Removes the descriptor with the given id.
+		/// </summary>
+		/// <param name="id">Identifier.</param>
 		public void RemoveAt(int id) {
 			blocks.Remove(this[id]);
 		}
 
+		/// <summary>
+		/// Analogous to the indexer.
+		/// </summary>
+		/// <returns>The descriptor.</returns>
+		/// <param name="reference">Reference.</param>
 		public Descriptor FetchReference(int reference) {
 			return this[reference];
 		}
@@ -95,9 +131,13 @@ namespace OneDescript {
 	public static class OneDescriptorSerializer {
 		public class BinaryParsingException : FormatException {}
 
-		public static readonly byte BLOCK_INITIALIZER = 0x3C;
-		public static readonly byte BLOCK_FINALIZER = 0xC3;
+		private static readonly byte BLOCK_INITIALIZER = 0x3C;
+		private static readonly byte BLOCK_FINALIZER = 0xC3;
 
+		/// <summary>
+		/// Deserialize the specified input stream into a DescriptorGroup. The stream must be seekable.
+		/// </summary>
+		/// <param name="stream">Stream.</param>
 		public static DescriptorGroup Deserialize(Stream stream) {
 			using (BinaryReader reader = new BinaryReader(stream)) {
 				DescriptorGroup group = new DescriptorGroup();
@@ -134,6 +174,11 @@ namespace OneDescript {
 			}
 		}
 
+		/// <summary>
+		/// Serialize the specified group to the given output stream.
+		/// </summary>
+		/// <param name="group">Group.</param>
+		/// <param name="stream">Stream.</param>
 		public static void Serialize(DescriptorGroup group, Stream stream) {
 			using (BinaryWriter writer = new BinaryWriter(stream, Encoding.UTF8)) {
 				foreach (Descriptor descriptor in group) {

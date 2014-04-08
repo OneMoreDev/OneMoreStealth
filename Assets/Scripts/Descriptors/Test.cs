@@ -30,7 +30,7 @@ namespace OneDescript {
 
 		void Load() {
 			FileStream stream = File.OpenRead("C:/test.omd");
-			DescriptorGroup group = OneDescriptorSerializer.Deserialize(stream);
+			OneDescriptorSerializer.Deserialize(stream);
 		}
 	}
 }

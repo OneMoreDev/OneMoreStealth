@@ -2,6 +2,9 @@ using System.Collections.Generic;
 using System;
 
 namespace OneDescript {
+	/// <summary>
+	/// Represents the type of the value of a <see cref="OValue"/>.
+	/// </summary>
 	public class OValueType {
 		public static readonly OValueType INT = new OValueType(0);
 		public static readonly OValueType FLOAT = new OValueType(1);
@@ -15,6 +18,11 @@ namespace OneDescript {
 			this.typeByte = type;
 		}
 
+		/// <summary>
+		/// Returns the corresponding type instance for a given type byte.
+		/// </summary>
+		/// <returns>The byte.</returns>
+		/// <param name="b">The blue component.</param>
 		public static OValueType FromByte(byte b) {
 			switch (b) {
 				case 0: return INT;
@@ -31,14 +39,26 @@ namespace OneDescript {
 	}
 
 	public class OValue {
+		/// <summary>
+		/// The type of the stored value.
+		/// </summary>
+		/// <value>The type.</value>
 		public OValueType type {get; private set;}
+		/// <summary>
+		/// The raw value of this instance.
+		/// </summary>
 		private object _value;
 		
 		public OValue(OValueType type, object value) {
 			this.type = type;
 			_value = value;
 		}
-		
+
+		/// <summary>
+		/// Gets the value of this instance, coerced to the given type.
+		/// </summary>
+		/// <returns>The value.</returns>
+		/// <param name="type">Type to coerce to.</param>
 		public object GetValue(OValueType type) {
 			if (type == this.type) {
 				return _value;
@@ -47,6 +67,12 @@ namespace OneDescript {
 				return _value.ToString();
 			}
 			throw new ArgumentException("Types don't match");
+		}
+
+
+		/// <returns>The value of this instance.</returns>
+		public object GetValue() {
+			return GetValue(type);
 		}
 	}
 }

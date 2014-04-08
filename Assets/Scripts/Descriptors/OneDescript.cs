@@ -28,6 +28,10 @@ namespace OneDescript {
 			}
 		}
 
+		public void Remove(string property) {
+			properties.Remove(property);
+		}
+
 		#region IEnumerable implementation
 
 		public IEnumerator<KeyValuePair<string, OValue>> GetEnumerator() {
@@ -47,6 +51,11 @@ namespace OneDescript {
 
 	public class DescriptorGroup : IEnumerable<Descriptor> {
 		private List<Descriptor> blocks;
+		public int Count {
+			get {
+				return blocks.Count;
+			}
+		}
 		public DescriptorGroup() {
 			blocks = new List<Descriptor>();
 		}
@@ -58,6 +67,13 @@ namespace OneDescript {
 				value.ID = ID;
 				blocks.Add(value);
 			}
+		}
+
+		public void Remove(Descriptor desc) {
+			blocks.Remove(desc);
+		}
+		public void RemoveAt(int id) {
+			blocks.Remove(this[id]);
 		}
 
 		#region IEnumerable implementation

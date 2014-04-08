@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class TopDownPlayerController : MonoBehaviour {
-	float maxSpeed = 1f;
+	public float speed = 10f;
 	// Use this for initialization
 	void Start () {
 	
@@ -12,6 +12,6 @@ public class TopDownPlayerController : MonoBehaviour {
 	void FixedUpdate () {
 		float xMove	= Input.GetAxis("Horizontal");
 		float yMove = Input.GetAxis ("Vertical");
-		rigidbody2D.velocity = new Vector2 (xMove * maxSpeed, yMove * maxSpeed);
+		rigidbody2D.velocity = new Vector2 (xMove * speed, yMove * speed);
 	}
 }

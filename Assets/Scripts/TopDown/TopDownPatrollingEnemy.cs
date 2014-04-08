@@ -15,14 +15,11 @@ public class TopDownPatrollingEnemy : MonoBehaviour {
 	}
 
 	void Update() {
-		Debug.DrawRay(transform.position, new Vector3(movementDirection.x, movementDirection.y, 0)*0.3f);
 	}
 
 	// Update is called once per frame
 	void FixedUpdate() {
 		rigidbody2D.AddForce(movementDirection*speed);
-		float angle = Mathf.Atan2(movementDirection.y, movementDirection.x)*Mathf.Rad2Deg + 90f;
-		transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 	}
 
 	void OnCollisionEnter2D(Collision2D obj) {
@@ -37,7 +34,7 @@ public class TopDownPatrollingEnemy : MonoBehaviour {
 			.Select(contact => contact.point)
 				.Aggregate((accumluator, value) => accumluator + value);
 		Vector2 difference = new Vector2(transform.position.x, transform.position.y) - collisionMidpoint;
-		difference.Scale(GetRandomDirection());
+		difference.Scale(GetRandomDirection()*10f);
 		movementDirection = difference.normalized;
 	}
 

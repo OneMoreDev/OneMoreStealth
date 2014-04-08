@@ -79,7 +79,7 @@ public class ObstacleGridComponent : MonoBehaviour
 				if ( m_pathGrid.IsBlocked(i) )
 				{
 					Vector3 cellPos = m_pathGrid.GetCellCenter(i);
-					Vector3 cellSize3 = new Vector3(m_pathGrid.CellSize, 0.5f, m_pathGrid.CellSize);
+					Vector3 cellSize3 = new Vector3(m_pathGrid.CellSize, m_pathGrid.CellSize, 0.5f);
 					Gizmos.DrawCube(cellPos, cellSize3);
 				}
 			}

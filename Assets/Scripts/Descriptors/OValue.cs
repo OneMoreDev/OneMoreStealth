@@ -8,7 +8,7 @@ namespace OneDescript {
 		public static readonly OValueType STRING = new OValueType(2);
 		public static readonly OValueType REFLIST = new OValueType(3);
 
-		public byte typeByte;
+		public byte typeByte {get; private set;}
 
 		private OValueType() {}
 		private OValueType(byte type) {
@@ -24,22 +24,23 @@ namespace OneDescript {
 			default: throw new ArgumentException("Invalid type "+b);
 			}
 		}
+
 		public bool Equals(OValueType other) {
 			return typeByte == other.typeByte;
 		}
 	}
 
 	public class OValue {
-		private OValueType _type;
+		public OValueType type {get; private set;}
 		private object _value;
 		
 		public OValue(OValueType type, object value) {
-			_type = type;
+			this.type = type;
 			_value = value;
 		}
 		
 		public object GetValue(OValueType type) {
-			if (type == _type) {
+			if (type == this.type) {
 				return _value;
 			}
 			if (type == OValueType.STRING) {

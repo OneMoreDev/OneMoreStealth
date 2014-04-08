@@ -17,11 +17,11 @@ namespace OneDescript {
 
 		public static OValueType FromByte(byte b) {
 			switch (b) {
-			case 0: return INT;
-			case 1: return FLOAT;
-			case 2: return STRING;
-			case 3: return REFLIST;
-			default: throw new ArgumentException("Invalid type "+b);
+				case 0: return INT;
+				case 1: return FLOAT;
+				case 2: return STRING;
+				case 3: return REFLIST;
+				default: throw new ArgumentException("Invalid type "+b);
 			}
 		}
 

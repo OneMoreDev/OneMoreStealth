@@ -15,7 +15,7 @@ namespace OneDescript {
 			for (int i = 0; i < 10; i++) {
 				Descriptor desc = new Descriptor();
 				desc["text"] = new OValue(OValueType.STRING, "derp");
-				desc["prob"] = new OValue(OValueType.FLOAT, 1.1);
+				desc["prob"] = new OValue(OValueType.FLOAT, 1.1f);
 				desc["numb"] = new OValue(OValueType.INT, i);
 				List<int> refs = new List<int>();
 				for (int j = i; j < 10; j++) {
@@ -31,7 +31,6 @@ namespace OneDescript {
 		void Load() {
 			FileStream stream = File.OpenRead("C:/test.omd");
 			DescriptorGroup group = OneDescriptorSerializer.Deserialize(stream);
-			Debug.Log(group[0]["numb"]);
 		}
 	}
 }

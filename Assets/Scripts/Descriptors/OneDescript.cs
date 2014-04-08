@@ -80,18 +80,15 @@ namespace OneDescript {
 
 		public static DescriptorGroup Deserialize(Stream stream) {
 			using (BinaryReader reader = new BinaryReader(stream)) {
-				Action skipToBlock = () => {
-					while (reader.ReadByte() != BLOCK_INITIALIZER) {}
-					return;
-				};
 				DescriptorGroup group = new DescriptorGroup();
 				while (reader.BaseStream.Position != reader.BaseStream.Length) {
-					skipToBlock();
+					reader.ReadByte(); //read block initiator
 					Descriptor block = new Descriptor();
 					block.ID = reader.ReadInt32();
 					while (reader.PeekByte() != BLOCK_FINALIZER) {
 						string key = reader.ReadString();
-						OValueType type = OValueType.FromByte(reader.ReadByte());
+						byte rawType = reader.ReadByte();
+						OValueType type = OValueType.FromByte(rawType);
 						object data = null;
 						if (type.Equals(OValueType.INT)) {
 							data = reader.ReadInt32();
@@ -100,8 +97,9 @@ namespace OneDescript {
 						} else if (type.Equals(OValueType.STRING)) {
 							data = reader.ReadString();
 						} else if (type.Equals(OValueType.REFLIST)) {
+							int length = reader.ReadInt32();
 							List<int> refs = new List<int>();
-							while (reader.ReadBoolean()) {
+							for (int i = 0; i < length; i++) {
 								refs.Add(reader.ReadInt32());
 							}
 							data = refs;
@@ -109,6 +107,7 @@ namespace OneDescript {
 						OValue value = new OValue(type, data);
 						block[key] = value;
 					}
+					reader.ReadByte(); //read block finalizer
 					group[block.ID] = block;
 				}
 				return group;
@@ -124,7 +123,6 @@ namespace OneDescript {
 						writer.Write(kvp.Key);
 						OValue value = kvp.Value;
 						writer.Write(value.type.typeByte);
-						Debug.Log(value.type.typeByte);
 						if (value.type.Equals(OValueType.INT)) {
 							writer.Write((int)value.GetValue(value.type));
 						} else if (value.type.Equals(OValueType.FLOAT)) {
@@ -133,9 +131,8 @@ namespace OneDescript {
 							writer.Write((string)value.GetValue(value.type));
 						} else if (value.type.Equals(OValueType.REFLIST)) {
 							List<int> references = (List<int>)value.GetValue(OValueType.REFLIST);
+							writer.Write(references.Count);
 							for (int i = 0; i < references.Count; i++) {
-								bool hasNext = i+1 == references.Count;
-								writer.Write(hasNext);
 								writer.Write(references[i]);
 							}
 						}

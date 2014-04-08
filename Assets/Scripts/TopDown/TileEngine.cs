@@ -29,9 +29,11 @@ public class TileEngine : MonoBehaviour {
 		int i = 0;
 		foreach (GameObject gameObject in gameObjects) {
 			group[i]["name"] = new OValue(OValueType.STRING, gameObject.name);
+			group[i]["layer"] = new OValue(OValueType.INT, gameObject.layer);
 			group[i]["yAxis"] = new OValue(OValueType.FLOAT, gameObject.transform.position.y);
 			group[i]["xAxis"] = new OValue(OValueType.FLOAT, gameObject.transform.position.x);
 			group[i]["zAxis"] = new OValue(OValueType.FLOAT, gameObject.transform.position.z);
+			i++;
 		}
 		OneDescript.OneDescriptorSerializer.Serialize(group, File.OpenWrite(filePath));
 	}
@@ -40,6 +42,7 @@ public class TileEngine : MonoBehaviour {
 		DescriptorGroup group = OneDescript.OneDescriptorSerializer.Deserialize(File.OpenRead(filePath));
 		foreach (Descriptor descriptor in group) {
 			string name = Convert.ToString(descriptor["name"].GetValue(OValueType.STRING));
+			int layer = Convert.ToInt32(descriptor["layer"].GetValue(OValueType.INT));
 			Vector3 position = new Vector3(Convert.ToSingle(descriptor["xAxis"].GetValue(OValueType.FLOAT)),
 				Convert.ToSingle(descriptor["yAxis"].GetValue(OValueType.FLOAT)),
 				Convert.ToSingle(descriptor["zAxis"].GetValue(OValueType.FLOAT)));

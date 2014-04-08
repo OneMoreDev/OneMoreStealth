@@ -12,9 +12,11 @@ public class TopDownHumanoidAnim : MonoBehaviour {
 	bool diagonalUpRight = false;
 	bool diagonalDownLeft = false;
 	bool diagonalDownRight = false;
+	Vector3 lastPosition;
 	// Use this for initialization
 	void Start() {
 		anim = GetComponent<Animator>();
+		lastPosition = new Vector3 ();
 	}
 
 	// Update is called once per frame
@@ -100,12 +102,18 @@ public class TopDownHumanoidAnim : MonoBehaviour {
 			left = false;
 			right = false;
 			up = false;
-			down = true;
+			down = false;
 			diagonalUpLeft = false;
 			diagonalUpRight = false;
 			diagonalDownLeft = false;
 			diagonalDownRight = true;
 			transform.rotation = Quaternion.Euler(Vector3.forward * -210);
 		}
+		if (rigidbody2D.velocity.x + rigidbody2D.velocity.y != 0f || (transform.position.x != lastPosition.x && transform.position.y != lastPosition.y)) {
+			anim.SetFloat("Speed", 0.02f);
+		} else {
+			anim.SetFloat("Speed", 0.00f);
+		}
+		lastPosition = transform.position;
 	}
 }

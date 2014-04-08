@@ -335,6 +335,14 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6100000, guid: faa415ae33b729f4384a1777d31cb11e, type: 2}
+      propertyPath: m_Size.y
+      value: .170000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100000, guid: faa415ae33b729f4384a1777d31cb11e, type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: faa415ae33b729f4384a1777d31cb11e, type: 2}
   m_RootGameObject: {fileID: 1861313437}
@@ -464,6 +472,7 @@ GameObject:
   - 114: {fileID: 198872587}
   - 95: {fileID: 198872586}
   - 114: {fileID: 198872585}
+  - 61: {fileID: 198872592}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
@@ -519,7 +528,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 198872584}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .5
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_FixedAngle: 1
   m_IsKinematic: 0
@@ -536,7 +545,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: 7517e1b17ca857246a309c615457800f, type: 2}
   m_IsTrigger: 0
-  m_Radius: .524999976
+  m_Radius: .129999995
   m_Center: {x: 0, y: 0}
 --- !u!212 &198872590
 SpriteRenderer:
@@ -573,6 +582,18 @@ Transform:
   m_LocalScale: {x: .486011773, y: .481116056, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!61 &198872592
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6100000, guid: faa415ae33b729f4384a1777d31cb11e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1021819166}
+  m_GameObject: {fileID: 198872584}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 1, y: .170000002}
+  m_Center: {x: 0, y: 0}
 --- !u!1 &204946205
 GameObject:
   m_ObjectHideFlags: 0
@@ -1035,6 +1056,7 @@ GameObject:
   - 114: {fileID: 598988822}
   - 95: {fileID: 598988821}
   - 114: {fileID: 598988820}
+  - 61: {fileID: 598988827}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
@@ -1090,7 +1112,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 598988819}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .5
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_FixedAngle: 1
   m_IsKinematic: 0
@@ -1107,7 +1129,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: 7517e1b17ca857246a309c615457800f, type: 2}
   m_IsTrigger: 0
-  m_Radius: .524999976
+  m_Radius: .129999995
   m_Center: {x: 0, y: 0}
 --- !u!212 &598988825
 SpriteRenderer:
@@ -1144,6 +1166,18 @@ Transform:
   m_LocalScale: {x: .486011773, y: .481116056, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!61 &598988827
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6100000, guid: faa415ae33b729f4384a1777d31cb11e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1892319709}
+  m_GameObject: {fileID: 598988819}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 1, y: .170000002}
+  m_Center: {x: 0, y: 0}
 --- !u!1 &621051355
 GameObject:
   m_ObjectHideFlags: 0
@@ -1282,6 +1316,7 @@ GameObject:
   - 114: {fileID: 883858412}
   - 95: {fileID: 883858411}
   - 114: {fileID: 883858410}
+  - 61: {fileID: 883858417}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
@@ -1337,7 +1372,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 883858409}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .5
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_FixedAngle: 1
   m_IsKinematic: 0
@@ -1354,7 +1389,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: 7517e1b17ca857246a309c615457800f, type: 2}
   m_IsTrigger: 0
-  m_Radius: .524999976
+  m_Radius: .129999995
   m_Center: {x: 0, y: 0}
 --- !u!212 &883858415
 SpriteRenderer:
@@ -1391,6 +1426,18 @@ Transform:
   m_LocalScale: {x: .486011773, y: .481116056, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!61 &883858417
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6100000, guid: faa415ae33b729f4384a1777d31cb11e,
+    type: 2}
+  m_PrefabInternal: {fileID: 589529723}
+  m_GameObject: {fileID: 883858409}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 1, y: .170000002}
+  m_Center: {x: 0, y: 0}
 --- !u!1 &899877210
 GameObject:
   m_ObjectHideFlags: 0
@@ -1469,6 +1516,7 @@ GameObject:
   - 114: {fileID: 907324451}
   - 95: {fileID: 907324450}
   - 114: {fileID: 907324449}
+  - 61: {fileID: 907324456}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
@@ -1524,7 +1572,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 907324448}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .5
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_FixedAngle: 1
   m_IsKinematic: 0
@@ -1541,7 +1589,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: 7517e1b17ca857246a309c615457800f, type: 2}
   m_IsTrigger: 0
-  m_Radius: .524999976
+  m_Radius: .129999995
   m_Center: {x: 0, y: 0}
 --- !u!212 &907324454
 SpriteRenderer:
@@ -1578,6 +1626,18 @@ Transform:
   m_LocalScale: {x: .486011773, y: .481116056, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!61 &907324456
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6100000, guid: faa415ae33b729f4384a1777d31cb11e,
+    type: 2}
+  m_PrefabInternal: {fileID: 411501366}
+  m_GameObject: {fileID: 907324448}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 1, y: .170000002}
+  m_Center: {x: 0, y: 0}
 --- !u!1 &940736324
 GameObject:
   m_ObjectHideFlags: 0
@@ -1591,6 +1651,8 @@ GameObject:
   - 114: {fileID: 940736326}
   - 50: {fileID: 940736325}
   - 114: {fileID: 940736330}
+  - 61: {fileID: 940736331}
+  - 95: {fileID: 940736332}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1607,7 +1669,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 940736324}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_FixedAngle: 1
   m_IsKinematic: 0
@@ -1636,7 +1698,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Radius: .524999976
+  m_Radius: .129999995
   m_Center: {x: 0, y: 0}
 --- !u!212 &940736328
 SpriteRenderer:
@@ -1685,6 +1747,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bdb395e957924f4eb238d8088199a88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &940736331
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6100000, guid: 640d905428aa1384288c0f902d9fa881,
+    type: 2}
+  m_PrefabInternal: {fileID: 160934876}
+  m_GameObject: {fileID: 940736324}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 1, y: .170000002}
+  m_Center: {x: 0, y: 0}
+--- !u!95 &940736332
+Animator:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 9500000, guid: 640d905428aa1384288c0f902d9fa881,
+    type: 2}
+  m_PrefabInternal: {fileID: 160934876}
+  m_GameObject: {fileID: 940736324}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3b64788ff425b334b9283b75be1ba385, type: 2}
+  m_CullingMode: 0
+  m_ApplyRootMotion: 1
+  m_AnimatePhysics: 0
+  m_HasTransformHierarchy: 1
 --- !u!1001 &1021819166
 Prefab:
   m_ObjectHideFlags: 0
@@ -1883,6 +1972,10 @@ Prefab:
     - target: {fileID: 400000, guid: faa415ae33b729f4384a1777d31cb11e, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5800000, guid: faa415ae33b729f4384a1777d31cb11e, type: 2}
+      propertyPath: m_Radius
+      value: .129999995
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: faa415ae33b729f4384a1777d31cb11e, type: 2}
@@ -2151,6 +2244,7 @@ GameObject:
   - 114: {fileID: 1307784661}
   - 95: {fileID: 1307784660}
   - 114: {fileID: 1307784659}
+  - 61: {fileID: 1307784666}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
@@ -2206,7 +2300,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1307784658}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .5
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_FixedAngle: 1
   m_IsKinematic: 0
@@ -2223,7 +2317,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: 7517e1b17ca857246a309c615457800f, type: 2}
   m_IsTrigger: 0
-  m_Radius: .524999976
+  m_Radius: .129999995
   m_Center: {x: 0, y: 0}
 --- !u!212 &1307784664
 SpriteRenderer:
@@ -2260,6 +2354,18 @@ Transform:
   m_LocalScale: {x: .486011773, y: .481116056, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!61 &1307784666
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6100000, guid: faa415ae33b729f4384a1777d31cb11e,
+    type: 2}
+  m_PrefabInternal: {fileID: 473735605}
+  m_GameObject: {fileID: 1307784658}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 1, y: .170000002}
+  m_Center: {x: 0, y: 0}
 --- !u!1 &1381205165
 GameObject:
   m_ObjectHideFlags: 0
@@ -2336,6 +2442,7 @@ GameObject:
   - 114: {fileID: 1394396407}
   - 95: {fileID: 1394396406}
   - 114: {fileID: 1394396405}
+  - 61: {fileID: 1394396412}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
@@ -2391,7 +2498,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1394396404}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .5
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_FixedAngle: 1
   m_IsKinematic: 0
@@ -2408,7 +2515,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: 7517e1b17ca857246a309c615457800f, type: 2}
   m_IsTrigger: 0
-  m_Radius: .524999976
+  m_Radius: .129999995
   m_Center: {x: 0, y: 0}
 --- !u!212 &1394396410
 SpriteRenderer:
@@ -2445,6 +2552,18 @@ Transform:
   m_LocalScale: {x: .486011773, y: .481116056, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!61 &1394396412
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6100000, guid: faa415ae33b729f4384a1777d31cb11e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1885198726}
+  m_GameObject: {fileID: 1394396404}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 1, y: .170000002}
+  m_Center: {x: 0, y: 0}
 --- !u!1 &1532855360
 GameObject:
   m_ObjectHideFlags: 0
@@ -2557,7 +2676,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_BackGroundColor: {r: .647058845, g: .647058845, b: .647058845, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -2737,6 +2856,7 @@ GameObject:
   - 114: {fileID: 1801185725}
   - 95: {fileID: 1801185724}
   - 114: {fileID: 1801185723}
+  - 61: {fileID: 1801185730}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
@@ -2792,7 +2912,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1801185722}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .5
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_FixedAngle: 1
   m_IsKinematic: 0
@@ -2809,7 +2929,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: 7517e1b17ca857246a309c615457800f, type: 2}
   m_IsTrigger: 0
-  m_Radius: .524999976
+  m_Radius: .129999995
   m_Center: {x: 0, y: 0}
 --- !u!212 &1801185728
 SpriteRenderer:
@@ -2846,6 +2966,18 @@ Transform:
   m_LocalScale: {x: .486011773, y: .481116056, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!61 &1801185730
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6100000, guid: faa415ae33b729f4384a1777d31cb11e,
+    type: 2}
+  m_PrefabInternal: {fileID: 579727432}
+  m_GameObject: {fileID: 1801185722}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 1, y: .170000002}
+  m_Center: {x: 0, y: 0}
 --- !u!1 &1861313437
 GameObject:
   m_ObjectHideFlags: 0
@@ -2860,6 +2992,7 @@ GameObject:
   - 114: {fileID: 1861313440}
   - 95: {fileID: 1861313439}
   - 114: {fileID: 1861313438}
+  - 61: {fileID: 1861313445}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
@@ -2915,7 +3048,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1861313437}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .5
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_FixedAngle: 1
   m_IsKinematic: 0
@@ -2932,7 +3065,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: 7517e1b17ca857246a309c615457800f, type: 2}
   m_IsTrigger: 0
-  m_Radius: .524999976
+  m_Radius: .129999995
   m_Center: {x: 0, y: 0}
 --- !u!212 &1861313443
 SpriteRenderer:
@@ -2969,6 +3102,18 @@ Transform:
   m_LocalScale: {x: .486011773, y: .481116056, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!61 &1861313445
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6100000, guid: faa415ae33b729f4384a1777d31cb11e,
+    type: 2}
+  m_PrefabInternal: {fileID: 153891787}
+  m_GameObject: {fileID: 1861313437}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 1, y: .170000002}
+  m_Center: {x: 0, y: 0}
 --- !u!1001 &1885198726
 Prefab:
   m_ObjectHideFlags: 0
@@ -3063,6 +3208,7 @@ GameObject:
   - 114: {fileID: 1922214121}
   - 95: {fileID: 1922214120}
   - 114: {fileID: 1922214119}
+  - 61: {fileID: 1922214126}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
@@ -3118,7 +3264,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1922214118}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .5
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_FixedAngle: 1
   m_IsKinematic: 0
@@ -3135,7 +3281,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: 7517e1b17ca857246a309c615457800f, type: 2}
   m_IsTrigger: 0
-  m_Radius: .524999976
+  m_Radius: .129999995
   m_Center: {x: 0, y: 0}
 --- !u!212 &1922214124
 SpriteRenderer:
@@ -3172,6 +3318,18 @@ Transform:
   m_LocalScale: {x: .486011773, y: .481116056, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!61 &1922214126
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6100000, guid: faa415ae33b729f4384a1777d31cb11e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1072531470}
+  m_GameObject: {fileID: 1922214118}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 1, y: .170000002}
+  m_Center: {x: 0, y: 0}
 --- !u!1 &1922848096
 GameObject:
   m_ObjectHideFlags: 0
@@ -3248,6 +3406,7 @@ GameObject:
   - 114: {fileID: 2025663840}
   - 95: {fileID: 2025663839}
   - 114: {fileID: 2025663838}
+  - 61: {fileID: 2025663845}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
@@ -3303,7 +3462,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 2025663837}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .5
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_FixedAngle: 1
   m_IsKinematic: 0
@@ -3320,7 +3479,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: 7517e1b17ca857246a309c615457800f, type: 2}
   m_IsTrigger: 0
-  m_Radius: .524999976
+  m_Radius: .129999995
   m_Center: {x: 0, y: 0}
 --- !u!212 &2025663843
 SpriteRenderer:
@@ -3357,3 +3516,15 @@ Transform:
   m_LocalScale: {x: .486011773, y: .481116056, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!61 &2025663845
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6100000, guid: faa415ae33b729f4384a1777d31cb11e,
+    type: 2}
+  m_PrefabInternal: {fileID: 36952476}
+  m_GameObject: {fileID: 2025663837}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 1, y: .170000002}
+  m_Center: {x: 0, y: 0}

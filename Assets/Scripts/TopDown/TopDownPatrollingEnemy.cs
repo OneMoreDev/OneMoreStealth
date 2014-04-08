@@ -1,97 +1,49 @@
 ﻿using UnityEngine;
+using System.Linq;
 using System.Collections;
 using AssemblyCSharp;
 using System.Collections.Generic;
 
 public class TopDownPatrollingEnemy : MonoBehaviour {
-	float xDirection = 0;
-	float yDirection = 0;
-	float speed = 10f;
+	public float speed = 10f;
 	List<DirectedBoolean> bools = new List<DirectedBoolean>();
 	Vector3 lastLocation;
+	Vector3 movementDirection;
 	// Use this for initialization
 	void Start() {
-		var downBool = new DirectedBoolean();
-		var upBool = new DirectedBoolean ();
-		var rightBool = new DirectedBoolean();
-		var leftBool = new DirectedBoolean ();
-		var downLeftBool = new DirectedBoolean();
-		var upLeftBool = new DirectedBoolean ();
-		var downRightBool = new DirectedBoolean();
-		var upRightBool = new DirectedBoolean ();
-		//--------
-		downBool.Activated = false;
-		downBool.Force = new Vector2 (0, speed * 1);
-		downBool.OppositeBool = upBool;
-		//--------
-		upBool.Activated = false;
-		upBool.Force = new Vector2 (0, speed * -1);
-		upBool.OppositeBool = downBool;
-		//--------
-		rightBool.Activated = false;
-		rightBool.Force = new Vector2 (speed * -1, 0);
-		rightBool.OppositeBool = leftBool;
-		//--------
-		leftBool.Activated = false;
-		leftBool.Force = new Vector2 (speed * 1, 0);
-		leftBool.OppositeBool = rightBool;
-		//--------
-		upLeftBool.Activated = false;
-		upLeftBool.Force = new Vector2 (speed * -1, speed * -1);
-		upLeftBool.OppositeBool = downRightBool;
-		//--------
-		downRightBool.Activated = false;
-		downRightBool.Force = new Vector2 (speed * -1, speed * 1);
-		downRightBool.OppositeBool = upLeftBool;
-		//--------
-		upRightBool.Activated = false;
-		upRightBool.Force = new Vector2 (speed * -1, speed * -1);
-		upRightBool.OppositeBool = downLeftBool;
-		//--------
-		downLeftBool.Activated = false;
-		downLeftBool.Force = new Vector2 (speed * -1, speed * 1);
-		downLeftBool.OppositeBool = upRightBool;
-		//--------
-		bools.Add (downBool);
-		bools.Add (upBool);
-		bools.Add (rightBool);
-		bools.Add (leftBool);
-		bools.Add (downLeftBool);
-		bools.Add (upLeftBool);
-		bools.Add (downRightBool);
-		bools.Add (upRightBool);
-		PickDirection ();
+		movementDirection = GetRandomDirection();
+	}
+
+	void Update() {
+		Debug.DrawRay(transform.position, new Vector3(movementDirection.x, movementDirection.y, 0)*0.3f);
 	}
 
 	// Update is called once per frame
 	void FixedUpdate() {
-		foreach (var boolean in bools) {
-			if(boolean.Activated){
-				rigidbody2D.AddForce(boolean.Force);
-			}
-			if (transform.position.x == lastLocation.x && transform.position.y == lastLocation.y) {
-				boolean.Activated = false;
-				PickDirection();		
-			}
-		}
-		lastLocation = transform.position;
+		rigidbody2D.AddForce(movementDirection*speed);
+		float angle = Mathf.Atan2(movementDirection.y, movementDirection.x)*Mathf.Rad2Deg + 90f;
+		transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 	}
 
 	void OnCollisionEnter2D(Collision2D obj) {
-		foreach (var boolean in bools) {
-			if(boolean.Activated){
-				rigidbody2D.AddForce(new Vector2(boolean.OppositeBool.Force.x * 2, boolean.OppositeBool.Force.y * 2));
-				boolean.Activated = false;
-			}
-			if (transform.position.x == lastLocation.x && transform.position.y == lastLocation.y) {
-				boolean.Activated = false;
-				PickDirection();		
-			}
-		}
+		RepickDirectionFromCollision(obj);
 	}
-	void PickDirection(){
-		int rand = Random.Range (0, bools.Count - 1);
-		bools [rand].Activated = true;
-		rigidbody2D.AddForce(bools [rand].Force);
+	void OnCollisonStay2D(Collision2D obj) {
+		RepickDirectionFromCollision(obj);
+	}
+
+	void RepickDirectionFromCollision (Collision2D obj) {
+		Vector2 collisionMidpoint = obj.contacts
+			.Select(contact => contact.point)
+				.Aggregate((accumluator, value) => accumluator + value);
+		Vector2 difference = new Vector2(transform.position.x, transform.position.y) - collisionMidpoint;
+		difference.Scale(GetRandomDirection());
+		movementDirection = difference.normalized;
+	}
+
+	Vector2 GetRandomDirection(){
+		float 	randX = Random.Range(0, 1000)/1000f,
+				randY = Random.Range(0, 1000)/1000f;
+		return new Vector2(randX, randY).normalized;
 	}
 }

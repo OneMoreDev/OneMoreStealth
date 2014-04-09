@@ -8,6 +8,7 @@ public class InventoryModifier : MonoBehaviour {
 	public string Information;
 	public int ObjectCorolation;
 	public bool DestructsAfterUse;
+	public bool DestroyThisModfier;
 	public InventoryItem.ItemType Type;
 	public InventoryItem Item;
 	// Use this for initialization
@@ -16,7 +17,7 @@ public class InventoryModifier : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 	
 	}
 	void OnCollisionEnter2D(Collision2D obj) {
@@ -24,6 +25,10 @@ public class InventoryModifier : MonoBehaviour {
 			InventoryManager inventory = obj.gameObject.GetComponent<InventoryManager>();
 			if (inventory != null) {
 				inventory.Inventory.Add(Item.ObjectCorolation, Item);
+				inventory.lastEntry = Item.ObjectCorolation;
+				if (DestroyThisModfier) {
+					Destroy(gameObject);
+				}
 			}
 		}
 	}

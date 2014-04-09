@@ -5,7 +5,7 @@ public class DoorScript : MonoBehaviour {
 	public bool Open = false;
 	public bool StayOpen = true;
 	public bool Locked = false;
-	public int MatchingKeyNumber;
+	public int ObjectCorolation;
 	private bool lockWarning;
 	Vector3 originalPosition;
 	// Use this for initialization
@@ -15,9 +15,23 @@ public class DoorScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		if (lockWarning) {
+			if (GUI.Button(RelativeRect.GetRelative(40, 50, 10, 10), "Its locked!")) {
+				lockWarning = false;
+			}
+		}
 	}
 	void OnCollisionEnter2D(Collision2D obj) {
 		if (obj.gameObject.layer == 9) {
+			if (Locked) {
+				InventoryManager manager = obj.gameObject.GetComponent<InventoryManager>();
+				if (manager.Inventory.ContainsKey(ObjectCorolation)) {
+					Locked = false;
+					if (manager.Inventory[ObjectCorolation].DestructsAfterUse) {
+						manager.Inventory.Remove(ObjectCorolation);
+					}
+				}
+			}
 			if (!Locked) {
 				if (Open == false) {
 					Open = true;
@@ -30,7 +44,7 @@ public class DoorScript : MonoBehaviour {
 			}
 		}
 	}
-	void OnGui() {
+	void OnGUI() {
 		if (lockWarning) {
 			if (GUI.Button(RelativeRect.GetRelative(40, 50, 10, 10), "Its locked!")) {
 				lockWarning = false;

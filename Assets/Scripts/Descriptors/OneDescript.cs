@@ -123,7 +123,7 @@ namespace OneDescript {
 		public List<Descriptor> Dereference(IEnumerable<int> refs) {
 			List<Descriptor> descriptors = new List<Descriptor> ();
 			foreach (Descriptor reference in refs.Select(refer => this[refer])) {
-				descriptors.Add(reference);			
+				descriptors.Add(reference);		
 			}
 			return descriptors;
 		}

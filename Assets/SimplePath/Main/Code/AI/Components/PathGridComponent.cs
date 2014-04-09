@@ -50,7 +50,7 @@ public class PathGridComponent : PathTerrainComponent
 			Grid.DebugDraw(transform.position, m_numberOfRows, m_numberOfColumns, m_cellSize, Gizmos.color);
 		}
 		
-		Gizmos.DrawCube(transform.position, new Vector3(0.25f, 0.25f, 0.25f));
+		Gizmos.DrawCube(transform.position, new Vector3(0.25f, 0.25f, 0));
 	}
 	#endregion
 }

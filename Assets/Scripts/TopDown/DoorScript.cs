@@ -33,7 +33,7 @@ public class DoorScript : MonoBehaviour {
 				}
 			}
 			if (!Locked) {
-				if (Open == false) {
+				if (!Open) {
 					Open = true;
 					rigidbody2D.fixedAngle = false;
 					rigidbody2D.isKinematic = false;

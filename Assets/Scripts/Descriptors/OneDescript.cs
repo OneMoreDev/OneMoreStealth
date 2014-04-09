@@ -116,6 +116,14 @@ namespace OneDescript {
 			return this[reference];
 		}
 
+		/// <summary>
+		/// Dereference the specified references.
+		/// </summary>
+		/// <param name="refs">References.</param>
+		public List<Descriptor> Dereference(IEnumerable<int> refs) {
+			return refs.Select(refer => this[refer]);
+		}
+
 		#region IEnumerable implementation
 		IEnumerator<Descriptor> IEnumerable<Descriptor>.GetEnumerator() {
 			return blocks.GetEnumerator();

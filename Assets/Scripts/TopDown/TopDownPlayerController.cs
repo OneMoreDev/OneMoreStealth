@@ -3,9 +3,10 @@ using System.Collections;
 
 public class TopDownPlayerController : MonoBehaviour {
 	public float speed = 10f;
+	GamePadScript gps;
 	// Use this for initialization
 	void Start() {
-
+		gps = GameObject.FindObjectOfType<GamePadScript>();
 	}
 
 	// Update is called once per frame
@@ -15,8 +16,8 @@ public class TopDownPlayerController : MonoBehaviour {
 		if (Application.platform == RuntimePlatform.Android
 			|| Application.platform == RuntimePlatform.BB10Player
 			|| Application.platform == RuntimePlatform.IPhonePlayer
-			|| Application.platform == RuntimePlatform.WP8Player) {
-			GamePadScript gps = GameObject.FindObjectOfType<GamePadScript>();
+			|| Application.platform == RuntimePlatform.WP8Player
+			|| gps.OverridePlatformRestriction) {
 			xMove = gps.XForce;
 			yMove = gps.YForce;
 		}

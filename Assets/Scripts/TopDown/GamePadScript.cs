@@ -6,6 +6,7 @@ public class GamePadScript : MonoBehaviour {
 	public float XForce;
 	public float YForce;
 	public bool MouseOver = false;
+	public bool OverridePlatformRestriction = false;
 	void Start() {
 
 	}
@@ -28,7 +29,8 @@ public class GamePadScript : MonoBehaviour {
 		if (Application.platform == RuntimePlatform.Android
 	|| Application.platform == RuntimePlatform.BB10Player
 	|| Application.platform == RuntimePlatform.IPhonePlayer
-	|| Application.platform == RuntimePlatform.WP8Player) {
+	|| Application.platform == RuntimePlatform.WP8Player
+	|| OverridePlatformRestriction) {
 			Rect up = RelativeRect.GetRelative(10, 70, 10, 10);
 			Rect down = RelativeRect.GetRelative(10, 90, 10, 10);
 			Rect left = RelativeRect.GetRelative(0, 80, 10, 10);

@@ -6,34 +6,40 @@ using OneDescript;
 using System;
 
 public class TileEngine : MonoBehaviour {
-	private string _filePath;
-	public string FilePath {
+	public string FilePath;
+	/*public string FilePath {
 		get {
-			return _filePath;
+			return FilePath;
 		}
 		set {
-			_filePath = value;
+			FilePath = value;
 		}
-	}
+	}*/
 	// Use this for initialization
 	void Start() {
-
+		if (!string.IsNullOrEmpty(FilePath)) {
+			SaveLevel(FilePath, Resources.FindObjectsOfTypeAll(typeof(GameObject)));
+		}
 	}
 
 	// Update is called once per frame
 	void Update() {
 
 	}
-	void SaveLevel(string filePath, List<GameObject> gameObjects) {
+	void SaveLevel(string filePath, UnityEngine.Object[] gameObjects) {
 		DescriptorGroup group = new DescriptorGroup();
 		int i = 0;
+		int failed = 0;
 		foreach (GameObject gameObject in gameObjects) {
-			group[i]["name"] = new OValue(OValueType.STRING, gameObject.name);
-			group[i]["layer"] = new OValue(OValueType.INT, gameObject.layer);
-			group[i]["yAxis"] = new OValue(OValueType.FLOAT, gameObject.transform.position.y);
-			group[i]["xAxis"] = new OValue(OValueType.FLOAT, gameObject.transform.position.x);
-			group[i]["zAxis"] = new OValue(OValueType.FLOAT, gameObject.transform.position.z);
-			group[i]["rotation"] = new OValue(OValueType.FLOAT, gameObject.transform.rotation);
+			if (gameObject.name != this.name) {
+				Descriptor desc = group[i];
+				desc["name"] = new OValue(OValueType.STRING, gameObject.name);
+				desc["layer"] = new OValue(OValueType.INT, gameObject.layer);
+				desc["yAxis"] = new OValue(OValueType.FLOAT, gameObject.transform.position.y);
+				desc["xAxis"] = new OValue(OValueType.FLOAT, gameObject.transform.position.x);
+				desc["zAxis"] = new OValue(OValueType.FLOAT, gameObject.transform.position.z);
+				desc["rotation"] = new OValue(OValueType.FLOAT, gameObject.transform.rotation);
+			}
 			i++;
 		}
 		OneDescript.OneDescriptorSerializer.Serialize(group, File.OpenWrite(filePath));

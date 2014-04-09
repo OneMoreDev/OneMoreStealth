@@ -121,7 +121,7 @@ namespace OneDescript {
 		/// </summary>
 		/// <param name="refs">References.</param>
 		public List<Descriptor> Dereference(IEnumerable<int> refs) {
-			return refs.Select(refer => this[refer]);
+			return (List<Descriptor>)refs.Select(refer => this[refer]);
 		}
 
 		#region IEnumerable implementation

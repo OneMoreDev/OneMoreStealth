@@ -21,6 +21,6 @@ public class TopDownPlayerController : MonoBehaviour {
 			xMove = gps.XForce;
 			yMove = gps.YForce;
 		}
-		rigidbody2D.velocity = new Vector2(xMove * speed, yMove * speed);
+		rigidbody2D.velocity = new Vector2(xMove, yMove) * speed;
 	}
 }

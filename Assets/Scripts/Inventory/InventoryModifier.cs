@@ -7,13 +7,14 @@ public class InventoryModifier : MonoBehaviour {
 	public string Description;
 	public string Information;
 	public int ObjectCorolation;
+	public float ItemWeight;
 	public bool DestructsAfterUse;
 	public bool DestroyThisModfier;
 	public InventoryItem.ItemType Type;
 	public InventoryItem Item;
 	// Use this for initialization
 	void Start () {
-		Item = new InventoryItem(Name, Description, Information, ObjectCorolation, DestructsAfterUse, Type);
+		Item = new InventoryItem(Name, Description, Information, ObjectCorolation, ItemWeight, DestructsAfterUse, Type);
 	}
 	
 	// Update is called once per frame

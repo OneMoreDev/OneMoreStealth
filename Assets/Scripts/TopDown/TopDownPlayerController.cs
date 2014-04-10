@@ -4,9 +4,11 @@ using System.Collections;
 public class TopDownPlayerController : MonoBehaviour {
 	public float speed = 10f;
 	GamePadScript gps;
+	InventoryManager inventory;
 	// Use this for initialization
 	void Start() {
 		gps = GameObject.FindObjectOfType<GamePadScript>();
+		inventory = GameObject.FindObjectOfType<InventoryManager>();
 	}
 
 	// Update is called once per frame
@@ -21,6 +23,7 @@ public class TopDownPlayerController : MonoBehaviour {
 			xMove = gps.XForce;
 			yMove = gps.YForce;
 		}
-		rigidbody2D.velocity = new Vector2(xMove, yMove) * speed;
+		float newSpeed = speed - inventory.Inventory.Count;
+		rigidbody2D.velocity = new Vector2(xMove, yMove) * newSpeed;
 	}
 }

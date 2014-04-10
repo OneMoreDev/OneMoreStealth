@@ -17,28 +17,26 @@ public class TileEngine : MonoBehaviour {
 	}*/
 	// Use this for initialization
 	void Start() {
-		if (!string.IsNullOrEmpty(FilePath)) {
-			SaveLevel(FilePath, Resources.FindObjectsOfTypeAll(typeof(GameObject)));
-		}
+
 	}
 
 	// Update is called once per frame
 	void Update() {
 
 	}
-	void SaveLevel(string filePath, UnityEngine.Object[] gameObjects) {
+	void SaveLevel(string filePath, List<Tile> tiles) {
 		DescriptorGroup group = new DescriptorGroup();
 		int i = 0;
 		int failed = 0;
-		foreach (GameObject gameObject in gameObjects) {
+		foreach (Tile gameObject in tiles) {
 			if (gameObject.name != this.name) {
 				Descriptor desc = group[i];
 				desc["name"] = new OValue(OValueType.STRING, gameObject.name);
 				desc["layer"] = new OValue(OValueType.INT, gameObject.layer);
-				desc["yAxis"] = new OValue(OValueType.FLOAT, gameObject.transform.position.y);
-				desc["xAxis"] = new OValue(OValueType.FLOAT, gameObject.transform.position.x);
-				desc["zAxis"] = new OValue(OValueType.FLOAT, gameObject.transform.position.z);
-				desc["rotation"] = new OValue(OValueType.FLOAT, gameObject.transform.rotation);
+				desc["yAxis"] = new OValue(OValueType.FLOAT, gameObject.position.y);
+				desc["xAxis"] = new OValue(OValueType.FLOAT, gameObject.position.x);
+				desc["zAxis"] = new OValue(OValueType.FLOAT, gameObject.position.z);
+				desc["rotation"] = new OValue(OValueType.FLOAT, gameObject.rotation);
 			}
 			i++;
 		}

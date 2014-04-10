@@ -2173,6 +2173,10 @@ Prefab:
       propertyPath: Information
       value: Help! I know not where I am! GET ME OUT OF HERE!!!
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 48f0ce0cdb573e94ead1f3465e2c6b16, type: 2}
+      propertyPath: DestructsAfterUse
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48f0ce0cdb573e94ead1f3465e2c6b16, type: 2}
   m_RootGameObject: {fileID: 1219698128}

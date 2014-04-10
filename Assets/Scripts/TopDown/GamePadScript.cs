@@ -32,7 +32,11 @@ public class GamePadScript : MonoBehaviour {
 	|| Application.platform == RuntimePlatform.WP8Player
 	|| OverridePlatformRestriction) {
 			Rect up = RelativeRect.GetRelative(10, 70, 10, 10);
+			Rect upLeft = RelativeRect.GetRelative(0, 70, 5, 10);
+			Rect upRight = RelativeRect.GetRelative(30, 70, 5, 10);
 			Rect down = RelativeRect.GetRelative(10, 90, 10, 10);
+			Rect downLeft = RelativeRect.GetRelative(0, 90, 5, 10);
+			Rect downRight = RelativeRect.GetRelative(30, 90, 5, 10);
 			Rect left = RelativeRect.GetRelative(0, 80, 10, 10);
 			Rect right = RelativeRect.GetRelative(20, 80, 10, 10);
 			if (GUI.Button(up, "Up") || up.Contains(Event.current.mousePosition)) {
@@ -40,9 +44,29 @@ public class GamePadScript : MonoBehaviour {
 				XForce = 0;
 				MouseOver = true;
 			}
+			if (GUI.Button(upLeft, "UpLeft") || upLeft.Contains(Event.current.mousePosition)) {
+				YForce = 1;
+				XForce = -1;
+				MouseOver = true;
+			}
+			if (GUI.Button(upRight, "UpRight") || upRight.Contains(Event.current.mousePosition)) {
+				YForce = 1;
+				XForce = 1;
+				MouseOver = true;
+			}
 			if (GUI.Button(down, "Down") || down.Contains(Event.current.mousePosition)) {
 				YForce = -1;
 				XForce = 0;
+				MouseOver = true;
+			}
+			if (GUI.Button(downLeft, "DownLeft") || downLeft.Contains(Event.current.mousePosition)) {
+				YForce = -1;
+				XForce = -1;
+				MouseOver = true;
+			}
+			if (GUI.Button(downRight, "DownRight") || downRight.Contains(Event.current.mousePosition)) {
+				YForce = -1;
+				XForce = 1;
 				MouseOver = true;
 			}
 			if (GUI.Button(left, "Left") || left.Contains(Event.current.mousePosition)) {

@@ -10,17 +10,19 @@ namespace Inventory {
 		string _description;
 		string _information;
 		int _objectCorolation;
+		float _weight;
 		bool _destructsAfterUse;
 		ItemType _type;
 		#endregion Constructors
 		#region Properties
-		public InventoryItem(string name, string descrption, string information, int objectCorolation, bool destructsAfterUse, ItemType type) {
+		public InventoryItem(string name, string descrption, string information, int objectCorolation, float weight, bool destructsAfterUse, ItemType type) {
 			_name = name;
 			_description = descrption;
 			_information = information;
 			_objectCorolation = objectCorolation;
 			_destructsAfterUse = destructsAfterUse;
 			_type = type;
+			_weight = weight;
 		}
 		public string Name {
 			get {
@@ -60,6 +62,14 @@ namespace Inventory {
 			}
 			set {
 				_destructsAfterUse = value;
+			}
+		}
+		public float Weight {
+			get {
+				return _weight;
+			}
+			set {
+				_weight = value;
 			}
 		}
 		public ItemType Type {

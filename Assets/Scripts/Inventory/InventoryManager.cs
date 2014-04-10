@@ -16,6 +16,15 @@ public class InventoryManager : MonoBehaviour {
 
 	}
 	void OnGUI(){
+		int i = 0;
+		foreach (InventoryItem item in Inventory.Values) {
+			if (GUI.Button(RelativeRect.GetRelative(i++ * 20, 0, 10, 10), item.Name)) {
+				InventoryItem temp = item;
+				if (!string.IsNullOrEmpty(temp.Information)) {
+					lastEntry = temp.ObjectCorolation;
+				}
+			}
+		} 
 		if (lastEntry > -1) {
 			if (Inventory[lastEntry].Type == InventoryItem.ItemType.Paper) {
 				if (!string.IsNullOrEmpty(Inventory[lastEntry].Information)) {

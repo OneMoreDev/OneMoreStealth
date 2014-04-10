@@ -3850,7 +3850,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 52156adcb4213ce4da8144fc1c5f4312, type: 2}
       propertyPath: OverridePlatformRestriction
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 52156adcb4213ce4da8144fc1c5f4312, type: 2}
@@ -4116,7 +4116,7 @@ MonoBehaviour:
   XForce: 0
   YForce: 0
   MouseOver: 0
-  OverridePlatformRestriction: 1
+  OverridePlatformRestriction: 0
 --- !u!4 &1867600843
 Transform:
   m_ObjectHideFlags: 0

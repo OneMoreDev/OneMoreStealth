@@ -7,7 +7,7 @@ public class Player_Controller : MonoBehaviour
 	public float jumpForce = 700f;
 	public Transform groundCheck;
 	public LayerMask groundLayer;
-
+	GamePadScript gps;
 	bool facingRight = true;
 	bool isGrounded = false;
 	float groundRadius = 0.2f;
@@ -16,14 +16,16 @@ public class Player_Controller : MonoBehaviour
 	void Start()
 	{
 		anim = GetComponent<Animator>();
+		gps = GameObject.FindObjectOfType<GamePadScript>();
 	}
 
 	void Update()
 	{
 		// JUMPING
-		if(isGrounded && Input.GetKeyDown(KeyCode.Space))
+		if(isGrounded && (Input.GetKeyDown ("space") || gps.YForce == 1))
 		{
 			rigidbody2D.AddForce(new Vector2(0, jumpForce));
+			gps.YForce = 0;
 		}
 	}
 	
@@ -32,7 +34,13 @@ public class Player_Controller : MonoBehaviour
 		isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
 
 		float move = Input.GetAxis("Horizontal");
-		
+		if (Application.platform == RuntimePlatform.Android
+			|| Application.platform == RuntimePlatform.BB10Player
+			|| Application.platform == RuntimePlatform.IPhonePlayer
+			|| Application.platform == RuntimePlatform.WP8Player
+			|| gps.OverridePlatformRestriction) {
+			move = gps.XForce;		
+		}
 		rigidbody2D.velocity = new Vector2(move * maxSpeed, rigidbody2D.velocity.y);
 
 		anim.SetFloat("Speed", Mathf.Abs(move));

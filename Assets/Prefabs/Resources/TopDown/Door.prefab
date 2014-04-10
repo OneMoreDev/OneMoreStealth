@@ -151,6 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3fccdf2af49a6b48adc2e2d38cf4613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KeyBind: e
+  AttemptedInteraction: 0
   Open: 0
   StayOpen: 1
   Locked: 0

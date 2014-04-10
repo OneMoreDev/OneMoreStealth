@@ -415,6 +415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3fccdf2af49a6b48adc2e2d38cf4613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KeyBind: e
   Open: 0
   StayOpen: 1
   Locked: 0
@@ -1295,6 +1296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3fccdf2af49a6b48adc2e2d38cf4613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KeyBind: e
   Open: 0
   StayOpen: 1
   Locked: 0
@@ -1577,6 +1579,10 @@ Prefab:
         FOR DEMISE OF STATE\r\n\r\n[[author notes -\r\n[[RECT - REctify, change info
         to be \u201Cvalid\u201D\r\n[[ERS - Remove\r\n[[P - Page\r\n[[L - line\r\n[[DEP
         - department"
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 48f0ce0cdb573e94ead1f3465e2c6b16, type: 2}
+      propertyPath: ItemWeight
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48f0ce0cdb573e94ead1f3465e2c6b16, type: 2}
@@ -1929,7 +1935,7 @@ MonoBehaviour:
     OF KNOWLEDGE SANCTITY\r\n\r\n-PROCESSED 5 APRIL AT 1430-\r\n-RECTIFIED 5 APRIL
     AT 1440-\r\n-SENT TO DOKS 5 APRIL AT 1550-"
   ObjectCorolation: 3
-  ItemWeight: 0
+  ItemWeight: 1
   DestructsAfterUse: 0
   DestroyThisModfier: 1
   Type: 5
@@ -2295,7 +2301,7 @@ MonoBehaviour:
     notes -\r\n[[RECT - REctify, change info to be \u201Cvalid\u201D\r\n[[ERS - Remove\r\n[[P
     - Page\r\n[[L - line\r\n[[DEP - department"
   ObjectCorolation: 4
-  ItemWeight: 0
+  ItemWeight: 1
   DestructsAfterUse: 0
   DestroyThisModfier: 1
   Type: 5
@@ -2385,6 +2391,10 @@ Prefab:
     - target: {fileID: 11400000, guid: 48f0ce0cdb573e94ead1f3465e2c6b16, type: 2}
       propertyPath: DestructsAfterUse
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 48f0ce0cdb573e94ead1f3465e2c6b16, type: 2}
+      propertyPath: ItemWeight
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48f0ce0cdb573e94ead1f3465e2c6b16, type: 2}
@@ -2633,6 +2643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3fccdf2af49a6b48adc2e2d38cf4613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KeyBind: e
   Open: 0
   StayOpen: 1
   Locked: 1
@@ -2827,6 +2838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3fccdf2af49a6b48adc2e2d38cf4613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KeyBind: e
   Open: 0
   StayOpen: 1
   Locked: 0
@@ -3089,6 +3101,10 @@ Prefab:
         DEP OF KNOWLEDGE SANCTITY\r\n\r\n-PROCESSED 5 APRIL AT 1430-\r\n-RECTIFIED
         5 APRIL AT 1440-\r\n-SENT TO DOKS 5 APRIL AT 1550-"
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 48f0ce0cdb573e94ead1f3465e2c6b16, type: 2}
+      propertyPath: ItemWeight
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48f0ce0cdb573e94ead1f3465e2c6b16, type: 2}
   m_RootGameObject: {fileID: 587269564}
@@ -3324,7 +3340,7 @@ MonoBehaviour:
     as I have a client who needs some rare Anglon books, yet to be burned or censored.\r\n\r\nThank
     you for your time,\r\nMr. Whisper"
   ObjectCorolation: 1
-  ItemWeight: 0
+  ItemWeight: 1
   DestructsAfterUse: 0
   DestroyThisModfier: 1
   Type: 5
@@ -3484,7 +3500,7 @@ MonoBehaviour:
     in the other countries. Hopefully that could be an option for you.\r\n\r\nSincerely,\r\nMr.
     Thompson"
   ObjectCorolation: 2
-  ItemWeight: 0
+  ItemWeight: 1
   DestructsAfterUse: 0
   DestroyThisModfier: 1
   Type: 5
@@ -3842,6 +3858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3fccdf2af49a6b48adc2e2d38cf4613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KeyBind: e
   Open: 0
   StayOpen: 1
   Locked: 1
@@ -4080,6 +4097,10 @@ Prefab:
         away from Anglon before the poverty gets any worse, and like you, I have costumers
         in the other countries. Hopefully that could be an option for you.\r\n\r\nSincerely,\r\nMr.
         Thompson"
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 48f0ce0cdb573e94ead1f3465e2c6b16, type: 2}
+      propertyPath: ItemWeight
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48f0ce0cdb573e94ead1f3465e2c6b16, type: 2}
@@ -4753,6 +4774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3fccdf2af49a6b48adc2e2d38cf4613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KeyBind: e
   Open: 0
   StayOpen: 1
   Locked: 1

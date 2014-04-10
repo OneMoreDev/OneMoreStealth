@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DoorScript : MonoBehaviour {
+public class DoorScript : KeyBoundGameObject {
 	public bool Open = false;
 	public bool StayOpen = true;
 	public bool Locked = false;
@@ -21,26 +21,28 @@ public class DoorScript : MonoBehaviour {
 			}
 		}
 	}
-	void OnCollisionEnter2D(Collision2D obj) {
+	void OnCollisionStay2D(Collision2D obj) {
 		if (obj.gameObject.layer == 9) {
+			if (Input.GetKeyDown(KeyBind)) {
 			if (Locked) {
-				InventoryManager manager = obj.gameObject.GetComponent<InventoryManager>();
-				if (manager.Inventory.ContainsKey(ObjectCorolation)) {
-					Locked = false;
-					if (manager.Inventory[ObjectCorolation].DestructsAfterUse) {
-						manager.Inventory.Remove(ObjectCorolation);
+					InventoryManager manager = obj.gameObject.GetComponent<InventoryManager>();
+					if (manager.Inventory.ContainsKey(ObjectCorolation)) {
+						Locked = false;
+						if (manager.Inventory[ObjectCorolation].DestructsAfterUse) {
+							manager.Inventory.Remove(ObjectCorolation);
+						}
 					}
 				}
-			}
-			if (!Locked) {
-				if (!Open) {
-					Open = true;
-					rigidbody2D.fixedAngle = false;
-					rigidbody2D.isKinematic = false;
-					//rigidbody2D.AddForce(new Vector2(-100,-50));
+				if (!Locked) {
+					if (!Open) {
+						Open = true;
+						rigidbody2D.fixedAngle = false;
+						rigidbody2D.isKinematic = false;
+						//rigidbody2D.AddForce(new Vector2(-100,-50));
+					}
+				} else {
+					lockWarning = true;
 				}
-			} else {
-				lockWarning = true;
 			}
 		}
 	}

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Inventory;
 
 public class TopDownPlayerController : MonoBehaviour {
 	public float speed = 10f;
@@ -23,7 +24,10 @@ public class TopDownPlayerController : MonoBehaviour {
 			xMove = gps.XForce;
 			yMove = gps.YForce;
 		}
-		float newSpeed = speed - inventory.Inventory.Count;
+		float newSpeed = speed;
+		foreach (InventoryItem item in inventory.Inventory.Values) {
+			newSpeed -= item.Weight;		
+		}
 		rigidbody2D.velocity = new Vector2(xMove, yMove) * newSpeed;
 	}
 }

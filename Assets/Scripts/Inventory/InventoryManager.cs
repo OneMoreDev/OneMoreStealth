@@ -17,7 +17,9 @@ public class InventoryManager : MonoBehaviour {
 	}
 	void OnGUI(){
 		int i = 0;
+		GUI.skin.button.wordWrap = true;
 		foreach (InventoryItem item in Inventory.Values) {
+			GUI.skin.button.alignment = TextAnchor.MiddleCenter;
 			if (GUI.Button(RelativeRect.GetRelative(i++ * 20, 0, 10, 10), item.Name)) {
 				InventoryItem temp = item;
 				if (!string.IsNullOrEmpty(temp.Information)) {
@@ -28,7 +30,8 @@ public class InventoryManager : MonoBehaviour {
 		if (lastEntry > -1) {
 			if (Inventory[lastEntry].Type == InventoryItem.ItemType.Paper) {
 				if (!string.IsNullOrEmpty(Inventory[lastEntry].Information)) {
-					if (GUI.Button(RelativeRect.GetRelative(50, 50, 40, 40), Inventory[lastEntry].Information)) {
+					GUI.skin.button.alignment = TextAnchor.UpperLeft;
+					if (GUI.Button(RelativeRect.GetRelative(50, 10, 70, 70), Inventory[lastEntry].Information)) {
 						lastEntry = -1;
 					}
 				}

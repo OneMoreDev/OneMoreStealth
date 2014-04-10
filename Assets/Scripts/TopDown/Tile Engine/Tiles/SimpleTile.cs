@@ -3,5 +3,11 @@ using System.Collections;
 using Map.TopDown;
 
 public class SimpleTile : Tile {
-	public static int ID = 0;
+	new public static int ID = 0;
+
+	public override void created() {
+		name = "Derp tile";
+		model = LoadModel("example");
+		material = LoadMaterial("derp");
+	}
 }

@@ -59,7 +59,7 @@ namespace Map.TopDown {
 		/// <returns>A Mesh representation of the model</returns>
 		/// <param name="name">The path to load the model from</param>
 		public static Mesh LoadModel(string name) {
-			return Resources.Load<GameObject>(name).GetComponent<MeshFilter>().mesh;
+			return Resources.Load<GameObject>(name).GetComponent<MeshFilter>().sharedMesh;
 		}
 		/// <summary>
 		/// Loads a material from the Resources folder
@@ -67,7 +67,7 @@ namespace Map.TopDown {
 		/// <returns>A Material instance</returns>
 		/// <param name="name">The path to load the material from</param>
 		public static Material LoadMaterial(string name) {
-			return Resources.Load<Material>("Materials/"+name);
+			return Resources.Load<Material>(name);
 		}
 	}
 }

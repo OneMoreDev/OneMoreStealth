@@ -8,6 +8,7 @@ using System.Reflection;
 
 namespace Map.TopDown {
 	[RequireComponent(typeof(PathManagerComponent))]
+	[ExecuteInEditMode]
 	public class TerrainManager : PathTerrainComponent {
 		
 		public string mapFile;
@@ -76,11 +77,12 @@ namespace Map.TopDown {
 			setTile(x, y, tileId, true);
 		}
 		public void setTile(int x, int y, Tile tile, bool recalculate) {
-			if (tiles[x, y] != null) tiles[x, y].removed();
+			Tile oldTile = tiles[x, y];
 			tile.manager = this;
 			tile.created();
 			tiles[x, y] = tile;
 			if (recalculate) recalculateSolidity();
+			if (oldTile != null) tiles[x, y].removed();
 		}
 		public void setTile(int x, int y, int tileId, bool recalculate) {
 			Tile tile = (Tile)tileTypes.FirstOrDefault(c => (int)c.GetField ("ID").GetValue (c) == tileId).GetConstructor (new Type[] {}).Invoke(new object[]{});

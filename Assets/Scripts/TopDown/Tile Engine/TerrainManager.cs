@@ -19,7 +19,7 @@ namespace Map.TopDown {
 		public Transform origin;
 		public PathManagerComponent pathMan;
 		
-		private Tile[,] tiles;
+		private Tile[,] tiles = new Tile[1,1];
 		private List<Type> tileTypes = new List<Type>();
 		public static Quaternion tileRotation = Quaternion.LookRotation(new Vector3(0, 1, 0));
 		private SimpleAI.Navigation.PathGrid grid;

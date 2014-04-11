@@ -25,9 +25,13 @@ public class TopDownPlayerController : MonoBehaviour {
 			yMove = gps.YForce;
 		}
 		float newSpeed = speed;
-		foreach (InventoryItem item in inventory.Inventory.Values) {
-			newSpeed -= item.Weight;		
+		if (inventory != null) {
+						foreach (InventoryItem item in inventory.Inventory.Values) {
+								newSpeed -= item.Weight;
+						}
+				}
+		if (xMove != 0 || yMove != 0) {
+			rigidbody.AddForce(new Vector3(xMove * newSpeed, 0, yMove * newSpeed));
 		}
-		rigidbody2D.velocity = new Vector2(xMove, yMove) * newSpeed;
 	}
 }

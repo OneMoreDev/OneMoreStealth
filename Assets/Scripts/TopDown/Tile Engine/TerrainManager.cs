@@ -35,6 +35,11 @@ namespace Map.TopDown {
 			foreach (Type type in tempTileTypes) {
 				tileTypes.Add(type);
 			}
+		}
+
+		void Start() {
+			pathMan = gameObject.GetComponent<PathManagerComponent>();
+			selectCollider.transform.localScale = new Vector3(mapSize*distanceScale*2, .1f, mapSize*distanceScale*2);
 			tiles = new Tile[mapSize,mapSize];
 			for (int y = 0; y < mapSize; y++) {
 				for (int x = 0; x < mapSize; x++) {
@@ -42,17 +47,7 @@ namespace Map.TopDown {
 					setTile(x, y, id, false);
 				}
 			}
-			//		for (int y = 0; y < mapSize; y++) {
-			//			for (int x = 0; x < mapSize; x++) {
-			//				setTile(x, y, 0, false);
-			//			}
-			//		}
 			recalculateSolidity();
-		}
-		
-		void Start () {
-			pathMan = gameObject.GetComponent<PathManagerComponent>();
-			selectCollider.transform.localScale = new Vector3(mapSize*distanceScale*2, .1f, mapSize*distanceScale*2);
 		}
 		
 		// Update is called once per frame

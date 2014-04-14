@@ -57,10 +57,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400006}
-  - 50: {fileID: 5000000}
+  - 50: {fileID: 0}
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400000}
-  - 58: {fileID: 5800000}
+  - 58: {fileID: 0}
   - 114: {fileID: 11400004}
   m_Layer: 9
   m_Name: Player
@@ -144,32 +144,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400002}
---- !u!50 &5000000
-Rigidbody2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100006}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 0
-  m_FixedAngle: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
---- !u!58 &5800000
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100006}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Radius: 1
-  m_Center: {x: 0, y: 0}
 --- !u!95 &9500000
 Animator:
   serializedVersion: 2
@@ -219,6 +193,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc84401c0a5b3b41bf52578cd3990b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RelativeFont: 200
+  lastEntry: -1
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -237,7 +213,7 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 1729097207
   m_Sprite: {fileID: 21300002, guid: eea4f8ac2505c4743956d0d50d4474fe, type: 3}
@@ -260,7 +236,7 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 1729097207
   m_Sprite: {fileID: 21300000, guid: eea4f8ac2505c4743956d0d50d4474fe, type: 3}
@@ -283,7 +259,7 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 1729097207
   m_Sprite: {fileID: 21300004, guid: eea4f8ac2505c4743956d0d50d4474fe, type: 3}
@@ -306,7 +282,7 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 1729097207
   m_Sprite: {fileID: 21300004, guid: eea4f8ac2505c4743956d0d50d4474fe, type: 3}

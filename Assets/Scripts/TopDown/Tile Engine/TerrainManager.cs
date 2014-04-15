@@ -11,19 +11,26 @@ namespace Map.TopDown {
 	[ExecuteInEditMode]
 	public class TerrainManager : PathTerrainComponent {
 		
-		public string mapFile;
+		public string mapFile = "";
 		public int mapSize, debrisTileId;
 		public float distanceScale = 1f;
 		public GameObject selectCollider = null;
 		public Material passableMat, impassableMat;
 		public Transform origin;
 		public PathManagerComponent pathMan;
-		
 		private Tile[,] tiles = new Tile[1,1];
 		private List<Type> tileTypes = new List<Type>();
 		public static Quaternion tileRotation = Quaternion.LookRotation(new Vector3(0, 1, 0));
 		private SimpleAI.Navigation.PathGrid grid;
-		
+
+		void SetupSelector() {
+			if (selectCollider == null) {
+				selectCollider = new GameObject("Selector");
+				selectCollider.transform.parent = gameObject.transform;
+				selectCollider.AddComponent<BoxCollider>();
+			}
+		}
+
 		void Awake() {
 			grid = new SimpleAI.Navigation.PathGrid();
 			grid.Awake(new Vector3(-(mapSize*distanceScale/2f), 0, -(mapSize*distanceScale/2f)), mapSize, mapSize, distanceScale, false);
@@ -38,8 +45,9 @@ namespace Map.TopDown {
 		}
 
 		void Start() {
+			SetupSelector();
 			pathMan = gameObject.GetComponent<PathManagerComponent>();
-			selectCollider.transform.localScale = new Vector3(mapSize*distanceScale*2, .1f, mapSize*distanceScale*2);
+			selectCollider.transform.localScale = new Vector3(mapSize*distanceScale, .1f, mapSize*distanceScale);
 			tiles = new Tile[mapSize,mapSize];
 			for (int y = 0; y < mapSize; y++) {
 				for (int x = 0; x < mapSize; x++) {
